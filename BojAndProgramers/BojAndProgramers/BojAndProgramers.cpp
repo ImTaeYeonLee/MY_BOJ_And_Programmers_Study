@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// 프로그래머스 로또의 최고 순위와 최저 순위
+// 프로그래머스 로또의 최고 순위와 최저 순위//
 vector<int> solution(vector<int> lottos, vector<int> win_nums) {
 	vector<int> answer;
 
