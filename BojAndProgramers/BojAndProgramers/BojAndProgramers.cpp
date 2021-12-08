@@ -5,7 +5,109 @@
 
 using namespace std;
 
+// 프로그래머스 키패드 누르기
+int abs(int n)
+{
+	if(n < 0) return -n;
+	else return n;
+}
+
+int distance(int pos, int dest)
+{
+	int dist = 0;
+
+	dist += abs((pos - 1) / 3 - (dest - 1) / 3); // 행의 차이
+	dist += abs((pos - 1) % 3 - (dest - 1) % 3); // 열의 차이
+
+	return dist;
+}
+
+string solution(vector<int> numbers, string hand)
+{
+	string answer = "";
+
+	int left = 10, right = 12;
+
+	for (int i = 0 ; i < numbers.size(); ++i)
+	{
+		int num = (numbers[i] != 0 ? numbers[i] : 11);
+
+		if (num % 3 == 1)
+		{
+			left = num;
+			answer.append("L");
+		}
+		else if (num % 3 == 0)
+		{
+			right = num;
+			answer.append("R");
+		}
+		else
+		{
+			int left_dist = distance(left, num);
+			int right_dist = distance(right, num);
+
+			if (left_dist < right_dist)
+			{
+			left = num;
+			answer.append("L");
+			}
+			else if (right_dist < left_dist)
+			{
+				right = num; // left에 num 값을 대입
+				answer.append("R"); // answer에 L을 추가
+			}
+			else if (right_dist == left_dist) // 같다면
+			{
+				if (hand == "left")
+				{
+					left = num;
+					answer.append("L");
+				}
+				else if (hand == "right")
+				{
+					right = num;
+					answer.append("R");
+				}
+			}
+		}
+	}
+
+	return answer;
+}
+
+
+/*
+// BOJ 11052
+int N;
+int card[1001];
+int DP[1005];
+
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> N;
+	for (int i = 1; i <= N; ++i)
+	{
+		cin >> card[i];
+	}
+
+	DP[1] = card[1];
+
+	for (int i = 2; i <= N; ++i)
+	{
+		for (int j = 1; j <= i; ++j)
+		{
+			DP[i] = max(DP[i], DP[i-j]+card[j]);
+		}
+	}
+
+	cout << DP[N];
+}
+*/
 // 프로그래머스 로또의 최고 순위와 최저 순위//
+/*
 vector<int> solution(vector<int> lottos, vector<int> win_nums) {
 	vector<int> answer;
 
@@ -39,6 +141,7 @@ vector<int> solution(vector<int> lottos, vector<int> win_nums) {
 
 	return answer;
 }
+*/
 
 /*
 // 전역변수 선언
