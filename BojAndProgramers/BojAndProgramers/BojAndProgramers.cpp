@@ -1,11 +1,62 @@
 ﻿#include "pch.h"
-#include <iostream>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
+/*
+// 211212 백준 1463
+
+int DP[1000001];
+
+int main()
+{
+	ios_base::sync_with_stdio();
+	cin.tie(0);
+	int n;
+	int i;
+	cin >> n;
+
+	for (int i = 2; i <= n; ++i)
+	{
+		DP[i] = DP[i-1]+1;
+		if(i % 2 == 0) DP[i] = min(DP[i], DP[i / 2] + 1);
+		if(i % 3 == 0) DP[i] = min(DP[i], DP[i / 3] + 1);
+	}
+	cout << DP[n] << endl;
+	return 0;
+}
+*/
+
+/*
+// 211212 프로그래머스 기능개발
+
+vector<int> solution(vector<int> progresses, vector<int> speeds) {
+	vector<int> answer;
+
+	int day;
+	int max_day = 0;
+	for (int i = 0; i < progresses.size(); ++i)
+	{
+		day = (99 - progresses[i]) / speeds[i] + 1;
+
+		if(answer.empty() || max_day < day)
+			answer.push_back(1);
+		else
+			++answer.back();
+
+		if(max_day < day)
+			max_day = day;
+	}
+
+	return answer;
+}
+*/
+
 // 프로그래머스 키패드 누르기
+/*
 int abs(int n)
 {
 	if(n < 0) return -n;
@@ -75,7 +126,7 @@ string solution(vector<int> numbers, string hand)
 
 	return answer;
 }
-
+*/
 
 /*
 // BOJ 11052
