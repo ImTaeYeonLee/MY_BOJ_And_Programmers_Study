@@ -7,6 +7,40 @@
 using namespace std;
 
 /*
+// 211213 프로그래머스 내적
+int solution(vector<int> a, vector<int> b) {
+	int answer = 0;
+
+	for(int i = 0 ; i < a.size() ; ++i)
+	answer += a[i] * b[i];
+
+	return answer;
+}
+*/
+/*
+// 211213 백준 5543
+int main() {
+
+	int burger1, burger2, burger3, coke, sprite;
+	cin >> burger1;
+	cin >> burger2;
+	cin >> burger3;
+	cin >> coke;
+	cin >> sprite;
+
+	int burgerMin = min(burger1, burger2);
+	burgerMin = min(burgerMin, burger3);
+	int drinkMin = min(coke, sprite);
+	int minPrice = burgerMin + drinkMin - 50;
+
+	cout << minPrice << endl;
+
+	return 0;
+
+}
+*/
+
+/*
 // 211212 백준 1463
 
 int DP[1000001];
